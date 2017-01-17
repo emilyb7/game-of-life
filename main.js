@@ -11,6 +11,7 @@ const store = createStore(Store);
 const render = () => ReactDOM.render(<App
   value={ store.getState() }
   onSelectCell={ event => store.dispatch({ type: 'SELECT_CELL', cell: event.target.id }) }
+  onNext={ () => store.dispatch({ type: 'NEXT_ITERATION' })}
 />, document.getElementById('app'));
 
 render();

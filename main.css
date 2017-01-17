@@ -1,11 +1,11 @@
-body, #app {
+body, #app, .main {
   background-color: pink;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   overflow: hidden;
   height: 100%;
@@ -39,10 +39,57 @@ body, #app {
   width: 10px;
   height: 100%;
   display: inline-block;
-  border: 0.5px solid #ccc;
+  border: 0.5px solid pink;
   cursor: pointer;
 }
 
 .cell:hover {
   background-color: turquoise;
+}
+
+.controls {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.helperText {
+  color: #ff4766;
+  font-family: "Courier New", Times, serif;
+
+}
+
+.container_buttons {
+  width: 180px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  color: #ffe5ea;
+  outline: none;
+  background-color: #f15f78;
+  box-shadow: none;
+  height: 40px;
+  width: 70px;
+  border: 0;
+  cursor: pointer;
+  font-family: "Courier New", Times, serif;
+}
+
+.controls_next {
+  color: #ffe5ea;
+  background-color: #f15f78;
+}
+
+.controls_next:active, .controls_next:hover {
+  background-color: #ff4766;
+}
+
+.controls_back {
+  background-color: #ffe5ea;
+  color: #f15f78;
 }

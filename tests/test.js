@@ -1,5 +1,5 @@
 const test = require('tape');
-const { countLivingNeighbours, getPossibleNeighbours, getDeadFromArray, survivors, reborn, getDimensions, iter, adjustDimensions, getAllDead } = require('./index.js');
+const { countLivingNeighbours, getPossibleNeighbours, getDeadFromArray, survivors, reborn, getDimensions, iter, adjustDimensions, getAllDead } = require('./../src/iteration.js');
 const helpers = require('./../src/reducers/helpers.js');
 
 test("countLivingNeighbours finds number of living neighbours of a given cell, including itself", (t) => {
@@ -112,16 +112,25 @@ test("adjustDimensions keeps padding around the game", (t) => {
 
   t.end();
 })
-//
-// // helper functions from src
-// test("get y returns row number from string", (t) => {
-//   const cell = "cell_11:48";
-//   t.equal(helpers.getY(cell), 11);
-//   t.end();
-// });
-//
-// test("get x returns column number from string", (t) => {
-//   const cell = "cell_11:48";
-//   t.equal(helpers.getX(cell), 48);
-//   t.end();
-// })
+
+// helper functions from src
+test("get y returns row number from string", (t) => {
+  const cell = "cell_11:48";
+  t.equal(helpers.getY(cell), 11);
+  t.end();
+});
+
+test("get x returns column number from string", (t) => {
+  const cell = "cell_11:48";
+  t.equal(helpers.getX(cell), 48);
+  t.end();
+})
+
+test("hslColor takes an integer representing a generation and returns a string representing a color", (t) => {
+  t.equal(helpers.hslColor(0), 'hsla\(0, 79%, 66%, 1\)');
+  t.equal(helpers.hslColor(1), 'hsla\(10, 79%, 66%, 1\)');
+  t.equal(helpers.hslColor(30), 'hsla\(300, 79%, 66%, 1\)');
+  t.equal(helpers.hslColor(36), 'hsla\(0, 79%, 66%, 1\)');
+  t.equal(helpers.hslColor(39), 'hsla\(30, 79%, 66%, 1\)');
+  t.end();
+})

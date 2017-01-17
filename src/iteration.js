@@ -1,11 +1,10 @@
-
 // counts living cells INCLUDING itself!!
 const countLivingNeighbours = (arr, pos) => {
-  let [x, y] = [pos.x, pos.y];
+  const [x, y] = [pos.x, pos.y];
   return arr.filter(cell => {
-    let [x2, y2] = [cell.x, cell.y];
-    let sortX = [x, x2].sort((a, b) => b - a);
-    let sortY = [y, y2].sort((a, b) => b - a);
+    const [x2, y2] = [cell.x, cell.y];
+    const sortX = [x, x2].sort((a, b) => b - a);
+    const sortY = [y, y2].sort((a, b) => b - a);
     return sortX[0] - sortX[1] <= 1 && sortY[0] - sortY[1] <= 1;
   }).length;
 }
@@ -62,7 +61,9 @@ const adjustDimensions = arr => {
 
 const iter = (arr, gen) => {
   const rebornGen = reborn(arr).map(cell => Object.assign({}, { gen: gen }, cell));
-  return adjustDimensions(survivors(arr).concat(rebornGen));
+  const allSurvivors = survivors(arr);
+  const newGeneration = allSurvivors.concat(rebornGen);
+  return adjustDimensions(newGeneration);
 }
 
 module.exports = {

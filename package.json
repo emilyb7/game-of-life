@@ -4,7 +4,7 @@
   "description": "game of life with react",
   "main": "index.js",
   "scripts": {
-    "test": "node js/test.js",
+    "test": "node tests/test.js",
     "start": "webpack-dev-server --hot"
   },
   "author": "emily",

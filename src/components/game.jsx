@@ -1,9 +1,11 @@
 import React from 'react';
+import { hslColor } from './../reducers/helpers.js';
 
 const Game = props => {
   console.log(props.value);
   const height = props.value.height;
   const width = props.value.width;
+  const livingCells = props.value.livingCells;
 
   const renderBoard = (height, width) => {
 
@@ -15,7 +17,8 @@ const Game = props => {
           key={`cell_${row}:${col}`}
           id={`cell_${row}:${col}`}
           style={{
-            backgroundColor: props.value.livingCells.some(cell => cell.x === col && cell.y === row) ? 'turquoise' : 'default', cursor: 'pointer'
+            backgroundColor: livingCells.some(cell => cell.x === col && cell.y === row) ? hslColor(livingCells.find(cell => cell.x === col && cell.y === row).gen) : '#ffe5ea', 
+            cursor: 'pointer'
           }}
         ></div>);
 
