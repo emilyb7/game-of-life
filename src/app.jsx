@@ -19,6 +19,7 @@ class App extends React.Component {
           <Controls
             value={this.props.value}
             onNext={this.props.onNext}
+            onBack={this.props.onBack}
           />
        </div>
       );

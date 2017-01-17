@@ -58,6 +58,8 @@ body, #app, .main {
 .helperText {
   color: #ff4766;
   font-family: "Courier New", Times, serif;
+  background-color: hsla(348, 100%, 95%, 0.4);
+  padding: 5px;
 
 }
 
@@ -78,6 +80,7 @@ button {
   border: 0;
   cursor: pointer;
   font-family: "Courier New", Times, serif;
+  font-size: 1.1em;
 }
 
 .controls_next {
@@ -92,4 +95,8 @@ button {
 .controls_back {
   background-color: #ffe5ea;
   color: #f15f78;
+}
+
+.controls_back:hover, .controls_back:active {
+  background-color: hsla(348, 100%, 95%, 0.4);
 }

@@ -30,6 +30,11 @@ export default (state = defaultState, action) => {
         width: getDimensions(cells)[1],
         history: state.history.concat([state.livingCells]),
        })
+    case 'BACK_STEP':
+      return Object.assign({}, state, {
+        livingCells: [].concat((state.history[state.history.length - 1]) || defaultState.livingCells),
+        history: state.history.slice(0, state.history.length - 1)
+      })
     default:
       return state
   }
