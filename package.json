@@ -1,0 +1,18 @@
+{
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "description": "game of life with react",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "emily",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
