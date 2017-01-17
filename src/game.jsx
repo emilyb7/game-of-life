@@ -13,8 +13,11 @@ const Game = props => {
           className="cell"
           onClick={props.onSelectCell}
           key={`cell_${row}:${col}`}
-          id={`cell_${row}:${col}`}>
-        </div>);
+          id={`cell_${row}:${col}`}
+          style={{
+            backgroundColor: props.value.livingCells.some(cell => cell.x === col && cell.y === row) ? 'turquoise' : 'default', cursor: 'pointer'
+          }}
+        ></div>);
 
     const rows = Array(height)
       .fill('')
