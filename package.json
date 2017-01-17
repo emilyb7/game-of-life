@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node tests/test.js",
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot",
+    "build": "NODE_ENV=production webpack --config ./webpack.config.js --progress --colors"
   },
   "author": "emily",
   "license": "ISC",
