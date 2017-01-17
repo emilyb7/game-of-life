@@ -58,19 +58,22 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _redux = __webpack_require__(178);
+	var _App = __webpack_require__(178);
 
-	var _index = __webpack_require__(199);
+	var _App2 = _interopRequireDefault(_App);
+
+	var _redux = __webpack_require__(184);
+
+	var _index = __webpack_require__(179);
 
 	var _index2 = _interopRequireDefault(_index);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//import App from './src/App.jsx';
 	var store = (0, _redux.createStore)(_index2.default);
 
 	var render = function render() {
-	  return _reactDom2.default.render(_react2.default.createElement(App, {
+	  return _reactDom2.default.render(_react2.default.createElement(_App2.default, {
 	    value: store.getState(),
 	    onSelectCell: function onSelectCell(event) {
 	      return store.dispatch({ type: 'SELECT_CELL', cell: event.target.id });
@@ -21521,32 +21524,445 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _main = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./../main.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _main2 = _interopRequireDefault(_main);
+
+	var _index = __webpack_require__(179);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	var _game = __webpack_require__(182);
+
+	var _game2 = _interopRequireDefault(_game);
+
+	var _controls = __webpack_require__(183);
+
+	var _controls2 = _interopRequireDefault(_controls);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
+
+	  function App() {
+	    _classCallCheck(this, App);
+
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'main' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'game' },
+	          _react2.default.createElement(_game2.default, {
+	            value: this.props.value,
+	            onSelectCell: this.props.onSelectCell
+	          })
+	        ),
+	        _react2.default.createElement(_controls2.default, {
+	          value: this.props.value,
+	          onNext: this.props.onNext,
+	          onBack: this.props.onBack
+	        })
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react2.default.Component);
+
+	exports.default = App;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	var _helpers = __webpack_require__(180);
+
+	var _iteration = __webpack_require__(181);
+
+	var defaultState = {
+	  iterations: 0,
+	  history: [],
+	  livingCells: [{ x: 1, y: 2, gen: 0 }, { x: 2, y: 3, gen: 1 }, { x: 3, y: 1, gen: 0 }, { x: 3, y: 2, gen: 0 }, { x: 3, y: 3, gen: 0 }],
+	  height: 10,
+	  width: 10
+	};
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+	  var action = arguments[1];
+
+	  var _ret = function () {
+	    switch (action.type) {
+	      case 'SELECT_CELL':
+	        var cell = { x: (0, _helpers.getX)(action.cell), y: (0, _helpers.getY)(action.cell), gen: state.iterations };
+	        var isActive = state.livingCells.some(function (c) {
+	          return c.x === cell.x && c.y === cell.y;
+	        });
+	        var livingCellsNew = !!isActive ? state.livingCells.filter(function (c) {
+	          return !(c.x === cell.x && c.y === cell.y);
+	        }) : state.livingCells.concat([cell]);
+	        return {
+	          v: Object.assign({}, state, {
+	            history: state.history.concat([state.livingCells]),
+	            livingCells: livingCellsNew
+	          })
+	        };
+	      case 'NEXT_ITERATION':
+	        var cells = (0, _iteration.iter)(state.livingCells, state.iterations + 1);
+	        return {
+	          v: Object.assign({}, state, {
+	            iterations: state.iterations + 1,
+	            livingCells: cells,
+	            height: (0, _iteration.getDimensions)(cells)[0],
+	            width: (0, _iteration.getDimensions)(cells)[1],
+	            history: state.history.concat([state.livingCells])
+	          })
+	        };
+	      case 'BACK_STEP':
+	        return {
+	          v: Object.assign({}, state, {
+	            livingCells: [].concat(state.history[state.history.length - 1] || defaultState.livingCells),
+	            history: state.history.slice(0, state.history.length - 1)
+	          })
+	        };
+	      default:
+	        return {
+	          v: state
+	        };
+	    }
+	  }();
+
+	  if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+	};
+
+/***/ },
+/* 180 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	var getY = function getY(cell) {
+	  return parseInt(cell.match(/\d+/g)[0]);
+	};
+
+	var getX = function getX(cell) {
+	  return parseInt(cell.match(/\d+/g)[1]);
+	};
+
+	var hslColor = function hslColor(gen) {
+	  var c = gen * 10 % 360;
+	  return "hsla(" + c + ", 79%, 66%, 1)";
+	};
+
+	module.exports = {
+	  getY: getY,
+	  getX: getX,
+	  hslColor: hslColor
+	};
+
+/***/ },
+/* 181 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	// counts living cells INCLUDING itself!!
+	var countLivingNeighbours = function countLivingNeighbours(arr, pos) {
+	  var _ref = [pos.x, pos.y],
+	      x = _ref[0],
+	      y = _ref[1];
+
+	  return arr.filter(function (cell) {
+	    var _ref2 = [cell.x, cell.y],
+	        x2 = _ref2[0],
+	        y2 = _ref2[1];
+
+	    var sortX = [x, x2].sort(function (a, b) {
+	      return b - a;
+	    });
+	    var sortY = [y, y2].sort(function (a, b) {
+	      return b - a;
+	    });
+	    return sortX[0] - sortX[1] <= 1 && sortY[0] - sortY[1] <= 1;
+	  }).length;
+	};
+
+	var getPossibleNeighbours = function getPossibleNeighbours(cell) {
+	  var _ref3 = [cell.y, cell.x],
+	      y_ = _ref3[0],
+	      x_ = _ref3[1];
+
+	  return [-1, 0, 1].reduce(function (a, b) {
+	    var next = Array(3).fill('').map(function (e, i) {
+	      return {
+	        y: y_ + b,
+	        x: x_ - 1 + i
+	      };
+	    });
+	    return a.concat(next);
+	  }, []).filter(function (e) {
+	    return !(e.x === x_ && e.y === y_);
+	  });
+	};
+
+	var getDeadFromArray = function getDeadFromArray(arr, allLiving) {
+	  return arr.filter(function (cell) {
+	    return allLiving.filter(function (livingCell) {
+	      return cell.x === livingCell.x && cell.y == livingCell.y;
+	    }).length === 0;
+	  });
+	};
+
+	var getAllDead = function getAllDead(livingCells) {
+	  return livingCells.reduce(function (a, b) {
+	    ;
+	    var neighbours = getPossibleNeighbours(b);
+	    var deadNeighbours = getDeadFromArray(neighbours, livingCells);
+	    return a.concat(deadNeighbours);
+	  }, []);
+	};
+
+	var survivors = function survivors(arr) {
+	  return arr.filter(function (cell) {
+	    return [2, 3].indexOf(countLivingNeighbours(arr, cell) - 1) > -1;
+	  });
+	};
+
+	var reborn = function reborn(arr) {
+	  // all dead cells surrounding all living cells
+	  var dead = getAllDead(arr);
+	  // dead cells filtered down to get unique cells only
+	  var uniqueCells = dead.reduce(function (a, b) {
+	    return a.concat(a.some(function (c) {
+	      return c.x === b.x && c.y === b.y;
+	    }) ? [] : [b]);
+	  }, []);
+	  return uniqueCells.filter(function (cell) {
+	    return dead.filter(function (c) {
+	      return c.x === cell.x && c.y === cell.y;
+	    }).length === 3;
+	  });
+	};
+
+	var getDimensions = function getDimensions(newLivingCells) {
+	  if (newLivingCells.length === 0) return [3, 3];
+	  return ["y", "x"].map(function (d) {
+	    return newLivingCells.map(function (cell) {
+	      return cell[d] + 1;
+	    }).sort(function (a, b) {
+	      return b - a;
+	    })[0] + 3;
+	  });
+	};
+
+	var adjustDimensions = function adjustDimensions(arr) {
+	  var adjustY = arr.map(function (c) {
+	    return c.y;
+	  }).indexOf(0) > -1 ? 1 : 0;
+	  var adjustX = arr.map(function (c) {
+	    return c.x;
+	  }).indexOf(0) > -1 ? 1 : 0;
+
+	  return arr.map(function (c) {
+	    return { y: c.y + adjustY, x: c.x + adjustX, gen: c.gen };
+	  });
+	};
+
+	var iter = function iter(arr, gen) {
+	  var rebornGen = reborn(arr).map(function (cell) {
+	    return Object.assign({}, { gen: gen }, cell);
+	  });
+	  var allSurvivors = survivors(arr);
+	  var newGeneration = allSurvivors.concat(rebornGen);
+	  return adjustDimensions(newGeneration);
+	};
+
+	module.exports = {
+	  countLivingNeighbours: countLivingNeighbours,
+	  getPossibleNeighbours: getPossibleNeighbours,
+	  getDeadFromArray: getDeadFromArray,
+	  survivors: survivors,
+	  reborn: reborn,
+	  getDimensions: getDimensions,
+	  iter: iter,
+	  adjustDimensions: adjustDimensions,
+	  getAllDead: getAllDead
+	};
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _helpers = __webpack_require__(180);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Game = function Game(props) {
+	  console.log(props.value);
+	  var height = props.value.height;
+	  var width = props.value.width;
+	  var livingCells = props.value.livingCells;
+
+	  var renderBoard = function renderBoard(height, width) {
+
+	    var cols = function cols(row) {
+	      return Array(width).fill('').map(function (_, col) {
+	        return _react2.default.createElement('div', {
+	          className: 'cell',
+	          onClick: props.onSelectCell,
+	          key: 'cell_' + row + ':' + col,
+	          id: 'cell_' + row + ':' + col,
+	          style: {
+	            backgroundColor: livingCells.some(function (cell) {
+	              return cell.x === col && cell.y === row;
+	            }) ? (0, _helpers.hslColor)(livingCells.find(function (cell) {
+	              return cell.x === col && cell.y === row;
+	            }).gen) : '#ffe5ea',
+	            cursor: 'pointer'
+	          }
+	        });
+	      });
+	    };
+
+	    var rows = Array(height).fill('').map(function (_, row) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'row', key: 'row_' + row },
+	        cols(row)
+	      );
+	    });
+
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'board' },
+	      rows
+	    );
+	  };
+
+	  return renderBoard(height, width);
+	};
+
+	exports.default = Game;
+
+/***/ },
+/* 183 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Controls = function Controls(props) {
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "controls" },
+	    _react2.default.createElement(
+	      "p",
+	      { className: "helperText" },
+	      "Click the board above to choose new cells, or click \"Next\" to play"
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "container_buttons" },
+	      _react2.default.createElement(
+	        "button",
+	        { className: "controls_back", onClick: props.onBack },
+	        "Back"
+	      ),
+	      _react2.default.createElement(
+	        "button",
+	        { className: "controls_next", onClick: props.onNext },
+	        "Next"
+	      )
+	    )
+	  );
+	};
+
+	exports.default = Controls;
+
+/***/ },
+/* 184 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 
-	var _createStore = __webpack_require__(179);
+	var _createStore = __webpack_require__(185);
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _combineReducers = __webpack_require__(194);
+	var _combineReducers = __webpack_require__(200);
 
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 
-	var _bindActionCreators = __webpack_require__(196);
+	var _bindActionCreators = __webpack_require__(202);
 
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 
-	var _applyMiddleware = __webpack_require__(197);
+	var _applyMiddleware = __webpack_require__(203);
 
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 
-	var _compose = __webpack_require__(198);
+	var _compose = __webpack_require__(204);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
-	var _warning = __webpack_require__(195);
+	var _warning = __webpack_require__(201);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -21570,7 +21986,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 179 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21579,11 +21995,11 @@
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 
-	var _isPlainObject = __webpack_require__(180);
+	var _isPlainObject = __webpack_require__(186);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _symbolObservable = __webpack_require__(190);
+	var _symbolObservable = __webpack_require__(196);
 
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 
@@ -21836,12 +22252,12 @@
 	}
 
 /***/ },
-/* 180 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetTag = __webpack_require__(181),
-	    getPrototype = __webpack_require__(187),
-	    isObjectLike = __webpack_require__(189);
+	var baseGetTag = __webpack_require__(187),
+	    getPrototype = __webpack_require__(193),
+	    isObjectLike = __webpack_require__(195);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -21904,12 +22320,12 @@
 
 
 /***/ },
-/* 181 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(182),
-	    getRawTag = __webpack_require__(185),
-	    objectToString = __webpack_require__(186);
+	var Symbol = __webpack_require__(188),
+	    getRawTag = __webpack_require__(191),
+	    objectToString = __webpack_require__(192);
 
 	/** `Object#toString` result references. */
 	var nullTag = '[object Null]',
@@ -21938,10 +22354,10 @@
 
 
 /***/ },
-/* 182 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(183);
+	var root = __webpack_require__(189);
 
 	/** Built-in value references. */
 	var Symbol = root.Symbol;
@@ -21950,10 +22366,10 @@
 
 
 /***/ },
-/* 183 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var freeGlobal = __webpack_require__(184);
+	var freeGlobal = __webpack_require__(190);
 
 	/** Detect free variable `self`. */
 	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -21965,7 +22381,7 @@
 
 
 /***/ },
-/* 184 */
+/* 190 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -21976,10 +22392,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 185 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(182);
+	var Symbol = __webpack_require__(188);
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -22028,7 +22444,7 @@
 
 
 /***/ },
-/* 186 */
+/* 192 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -22056,10 +22472,10 @@
 
 
 /***/ },
-/* 187 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(188);
+	var overArg = __webpack_require__(194);
 
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -22068,7 +22484,7 @@
 
 
 /***/ },
-/* 188 */
+/* 194 */
 /***/ function(module, exports) {
 
 	/**
@@ -22089,7 +22505,7 @@
 
 
 /***/ },
-/* 189 */
+/* 195 */
 /***/ function(module, exports) {
 
 	/**
@@ -22124,14 +22540,14 @@
 
 
 /***/ },
-/* 190 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(191);
+	module.exports = __webpack_require__(197);
 
 
 /***/ },
-/* 191 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -22140,7 +22556,7 @@
 	  value: true
 	});
 
-	var _ponyfill = __webpack_require__(193);
+	var _ponyfill = __webpack_require__(199);
 
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 
@@ -22163,10 +22579,10 @@
 
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(192)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(198)(module)))
 
 /***/ },
-/* 192 */
+/* 198 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -22182,7 +22598,7 @@
 
 
 /***/ },
-/* 193 */
+/* 199 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22210,7 +22626,7 @@
 	};
 
 /***/ },
-/* 194 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -22218,13 +22634,13 @@
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 
-	var _createStore = __webpack_require__(179);
+	var _createStore = __webpack_require__(185);
 
-	var _isPlainObject = __webpack_require__(180);
+	var _isPlainObject = __webpack_require__(186);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _warning = __webpack_require__(195);
+	var _warning = __webpack_require__(201);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -22358,7 +22774,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 195 */
+/* 201 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22388,7 +22804,7 @@
 	}
 
 /***/ },
-/* 196 */
+/* 202 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22444,7 +22860,7 @@
 	}
 
 /***/ },
-/* 197 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22455,7 +22871,7 @@
 
 	exports['default'] = applyMiddleware;
 
-	var _compose = __webpack_require__(198);
+	var _compose = __webpack_require__(204);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
@@ -22507,7 +22923,7 @@
 	}
 
 /***/ },
-/* 198 */
+/* 204 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22548,232 +22964,6 @@
 	    }, last.apply(undefined, arguments));
 	  };
 	}
-
-/***/ },
-/* 199 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	var _helpers = __webpack_require__(200);
-
-	var _iteration = __webpack_require__(201);
-
-	var defaultState = {
-	  iterations: 0,
-	  history: [],
-	  livingCells: [{ x: 1, y: 2, gen: 0 }, { x: 2, y: 3, gen: 1 }, { x: 3, y: 1, gen: 0 }, { x: 3, y: 2, gen: 0 }, { x: 3, y: 3, gen: 0 }],
-	  height: 10,
-	  width: 10
-	};
-
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
-	  var action = arguments[1];
-
-	  var _ret = function () {
-	    switch (action.type) {
-	      case 'SELECT_CELL':
-	        var cell = { x: (0, _helpers.getX)(action.cell), y: (0, _helpers.getY)(action.cell), gen: state.iterations };
-	        var isActive = state.livingCells.some(function (c) {
-	          return c.x === cell.x && c.y === cell.y;
-	        });
-	        var livingCellsNew = !!isActive ? state.livingCells.filter(function (c) {
-	          return !(c.x === cell.x && c.y === cell.y);
-	        }) : state.livingCells.concat([cell]);
-	        return {
-	          v: Object.assign({}, state, {
-	            history: state.history.concat([state.livingCells]),
-	            livingCells: livingCellsNew
-	          })
-	        };
-	      case 'NEXT_ITERATION':
-	        var cells = (0, _iteration.iter)(state.livingCells, state.iterations + 1);
-	        return {
-	          v: Object.assign({}, state, {
-	            iterations: state.iterations + 1,
-	            livingCells: cells,
-	            height: (0, _iteration.getDimensions)(cells)[0],
-	            width: (0, _iteration.getDimensions)(cells)[1],
-	            history: state.history.concat([state.livingCells])
-	          })
-	        };
-	      case 'BACK_STEP':
-	        return {
-	          v: Object.assign({}, state, {
-	            livingCells: [].concat(state.history[state.history.length - 1] || defaultState.livingCells),
-	            history: state.history.slice(0, state.history.length - 1)
-	          })
-	        };
-	      default:
-	        return {
-	          v: state
-	        };
-	    }
-	  }();
-
-	  if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
-	};
-
-/***/ },
-/* 200 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	var getY = function getY(cell) {
-	  return parseInt(cell.match(/\d+/g)[0]);
-	};
-
-	var getX = function getX(cell) {
-	  return parseInt(cell.match(/\d+/g)[1]);
-	};
-
-	var hslColor = function hslColor(gen) {
-	  var c = gen * 10 % 360;
-	  return "hsla(" + c + ", 79%, 66%, 1)";
-	};
-
-	module.exports = {
-	  getY: getY,
-	  getX: getX,
-	  hslColor: hslColor
-	};
-
-/***/ },
-/* 201 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	// counts living cells INCLUDING itself!!
-	var countLivingNeighbours = function countLivingNeighbours(arr, pos) {
-	  var _ref = [pos.x, pos.y],
-	      x = _ref[0],
-	      y = _ref[1];
-
-	  return arr.filter(function (cell) {
-	    var _ref2 = [cell.x, cell.y],
-	        x2 = _ref2[0],
-	        y2 = _ref2[1];
-
-	    var sortX = [x, x2].sort(function (a, b) {
-	      return b - a;
-	    });
-	    var sortY = [y, y2].sort(function (a, b) {
-	      return b - a;
-	    });
-	    return sortX[0] - sortX[1] <= 1 && sortY[0] - sortY[1] <= 1;
-	  }).length;
-	};
-
-	var getPossibleNeighbours = function getPossibleNeighbours(cell) {
-	  var _ref3 = [cell.y, cell.x],
-	      y_ = _ref3[0],
-	      x_ = _ref3[1];
-
-	  return [-1, 0, 1].reduce(function (a, b) {
-	    var next = Array(3).fill('').map(function (e, i) {
-	      return {
-	        y: y_ + b,
-	        x: x_ - 1 + i
-	      };
-	    });
-	    return a.concat(next);
-	  }, []).filter(function (e) {
-	    return !(e.x === x_ && e.y === y_);
-	  });
-	};
-
-	var getDeadFromArray = function getDeadFromArray(arr, allLiving) {
-	  return arr.filter(function (cell) {
-	    return allLiving.filter(function (livingCell) {
-	      return cell.x === livingCell.x && cell.y == livingCell.y;
-	    }).length === 0;
-	  });
-	};
-
-	var getAllDead = function getAllDead(livingCells) {
-	  return livingCells.reduce(function (a, b) {
-	    ;
-	    var neighbours = getPossibleNeighbours(b);
-	    var deadNeighbours = getDeadFromArray(neighbours, livingCells);
-	    return a.concat(deadNeighbours);
-	  }, []);
-	};
-
-	var survivors = function survivors(arr) {
-	  return arr.filter(function (cell) {
-	    return [2, 3].indexOf(countLivingNeighbours(arr, cell) - 1) > -1;
-	  });
-	};
-
-	var reborn = function reborn(arr) {
-	  // all dead cells surrounding all living cells
-	  var dead = getAllDead(arr);
-	  // dead cells filtered down to get unique cells only
-	  var uniqueCells = dead.reduce(function (a, b) {
-	    return a.concat(a.some(function (c) {
-	      return c.x === b.x && c.y === b.y;
-	    }) ? [] : [b]);
-	  }, []);
-	  return uniqueCells.filter(function (cell) {
-	    return dead.filter(function (c) {
-	      return c.x === cell.x && c.y === cell.y;
-	    }).length === 3;
-	  });
-	};
-
-	var getDimensions = function getDimensions(newLivingCells) {
-	  if (newLivingCells.length === 0) return [3, 3];
-	  return ["y", "x"].map(function (d) {
-	    return newLivingCells.map(function (cell) {
-	      return cell[d] + 1;
-	    }).sort(function (a, b) {
-	      return b - a;
-	    })[0] + 3;
-	  });
-	};
-
-	var adjustDimensions = function adjustDimensions(arr) {
-	  var adjustY = arr.map(function (c) {
-	    return c.y;
-	  }).indexOf(0) > -1 ? 1 : 0;
-	  var adjustX = arr.map(function (c) {
-	    return c.x;
-	  }).indexOf(0) > -1 ? 1 : 0;
-
-	  return arr.map(function (c) {
-	    return { y: c.y + adjustY, x: c.x + adjustX, gen: c.gen };
-	  });
-	};
-
-	var iter = function iter(arr, gen) {
-	  var rebornGen = reborn(arr).map(function (cell) {
-	    return Object.assign({}, { gen: gen }, cell);
-	  });
-	  var allSurvivors = survivors(arr);
-	  var newGeneration = allSurvivors.concat(rebornGen);
-	  return adjustDimensions(newGeneration);
-	};
-
-	module.exports = {
-	  countLivingNeighbours: countLivingNeighbours,
-	  getPossibleNeighbours: getPossibleNeighbours,
-	  getDeadFromArray: getDeadFromArray,
-	  survivors: survivors,
-	  reborn: reborn,
-	  getDimensions: getDimensions,
-	  iter: iter,
-	  adjustDimensions: adjustDimensions,
-	  getAllDead: getAllDead
-	};
 
 /***/ }
 /******/ ]);
