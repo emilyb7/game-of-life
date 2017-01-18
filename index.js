@@ -21953,7 +21953,7 @@
 	    _react2.default.createElement(
 	      "h4",
 	      null,
-	      "A game no players and just 4 rules"
+	      "A game with no players and just 4 rules"
 	    ),
 	    _react2.default.createElement(
 	      "ul",
@@ -21966,7 +21966,7 @@
 	      _react2.default.createElement(
 	        "li",
 	        null,
-	        "Any live cell with two or 3 live neighbours will live on to the next generation"
+	        "Any live cell with 2 or 3 live neighbours will live on to the next generation"
 	      ),
 	      _react2.default.createElement(
 	        "li",
