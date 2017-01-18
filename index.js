@@ -62,12 +62,11 @@
 
 	var _index2 = _interopRequireDefault(_index);
 
-	var _redux = __webpack_require__(184);
+	var _redux = __webpack_require__(185);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var store = (0, _redux.createStore)(_index2.default);
-
 	var render = function render() {
 	  return _reactDom2.default.render(_react2.default.createElement(_App2.default, { store: store }), document.getElementById('app'));
 	};
@@ -661,7 +660,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -778,7 +777,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 	'use strict';
 
@@ -1228,7 +1227,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -1337,7 +1336,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	function makeEmptyFunction(arg) {
@@ -1378,7 +1377,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -1409,7 +1408,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -1614,7 +1613,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -1659,7 +1658,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -2739,7 +2738,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -3183,7 +3182,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -3614,7 +3613,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -4460,7 +4459,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 	'use strict';
 
@@ -5719,7 +5718,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6210,7 +6209,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6292,7 +6291,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6355,7 +6354,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -6529,7 +6528,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -7618,7 +7617,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -7742,7 +7741,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -7941,7 +7940,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8034,7 +8033,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8133,7 +8132,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8162,7 +8161,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8528,7 +8527,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8570,7 +8569,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -8673,7 +8672,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -9006,7 +9005,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -12446,7 +12445,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 * @typechecks static-only
 	 */
 
@@ -13649,7 +13648,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -14623,7 +14622,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -15925,7 +15924,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16062,7 +16061,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16093,7 +16092,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @typechecks
-	 *
+	 * 
 	 */
 
 	/*eslint-disable no-self-compare */
@@ -16317,7 +16316,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16342,7 +16341,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16586,7 +16585,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16610,7 +16609,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16655,7 +16654,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -16831,7 +16830,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -18975,7 +18974,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	var isTextNode = __webpack_require__(150);
@@ -19613,7 +19612,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -21067,7 +21066,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 *
+	 * 
 	 */
 
 	'use strict';
@@ -21531,7 +21530,11 @@
 
 	var _controls2 = _interopRequireDefault(_controls);
 
-	var _redux = __webpack_require__(184);
+	var _details = __webpack_require__(184);
+
+	var _details2 = _interopRequireDefault(_details);
+
+	var _redux = __webpack_require__(185);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21540,9 +21543,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	//const store = createStore(Store);
-
 
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -21557,7 +21557,6 @@
 	    key: 'render',
 	    value: function render() {
 	      var store = this.props.store;
-	      console.log(store);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'main' },
@@ -21579,7 +21578,8 @@
 	          onBack: function onBack() {
 	            return store.dispatch({ type: 'BACK_STEP' });
 	          }
-	        })
+	        }),
+	        _react2.default.createElement(_details2.default, null)
 	      );
 	    }
 	  }]);
@@ -21929,32 +21929,103 @@
 /* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Details = function Details(props) {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "details" },
+	    _react2.default.createElement(
+	      "h3",
+	      null,
+	      "Conway's Game of Life"
+	    ),
+	    _react2.default.createElement(
+	      "h4",
+	      null,
+	      "A game with just 4 players and no rules"
+	    ),
+	    _react2.default.createElement(
+	      "ul",
+	      null,
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Any live cell with fewer than 2 live neighbours will die, as if caused by underpopulation"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Any live cell with two or 3 live neighbours will live on to the next generation"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Any live cell with more than 3 live neighbours will die, as if by overpopulation"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Any dead cell with exactly 3 live neighbours becomes a live cell, as if by reproduction"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "a",
+	      { href: "https://en.wikipedia.org/wiki/Conway's_Game_of_Life", target: "blank" },
+	      "Read more on Wikipedia"
+	    ),
+	    _react2.default.createElement("br", null),
+	    _react2.default.createElement("br", null),
+	    _react2.default.createElement(
+	      "a",
+	      { href: "https://github.com/emilyb7/game-of-life", target: "blank" },
+	      "View this project's code on GitHub"
+	    )
+	  );
+	};
+
+	exports.default = Details;
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 
-	var _createStore = __webpack_require__(185);
+	var _createStore = __webpack_require__(186);
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _combineReducers = __webpack_require__(200);
+	var _combineReducers = __webpack_require__(201);
 
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 
-	var _bindActionCreators = __webpack_require__(202);
+	var _bindActionCreators = __webpack_require__(203);
 
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 
-	var _applyMiddleware = __webpack_require__(203);
+	var _applyMiddleware = __webpack_require__(204);
 
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 
-	var _compose = __webpack_require__(204);
+	var _compose = __webpack_require__(205);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
-	var _warning = __webpack_require__(201);
+	var _warning = __webpack_require__(202);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -21978,7 +22049,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21987,11 +22058,11 @@
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 
-	var _isPlainObject = __webpack_require__(186);
+	var _isPlainObject = __webpack_require__(187);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _symbolObservable = __webpack_require__(196);
+	var _symbolObservable = __webpack_require__(197);
 
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 
@@ -22244,12 +22315,12 @@
 	}
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetTag = __webpack_require__(187),
-	    getPrototype = __webpack_require__(193),
-	    isObjectLike = __webpack_require__(195);
+	var baseGetTag = __webpack_require__(188),
+	    getPrototype = __webpack_require__(194),
+	    isObjectLike = __webpack_require__(196);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -22312,12 +22383,12 @@
 
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(188),
-	    getRawTag = __webpack_require__(191),
-	    objectToString = __webpack_require__(192);
+	var Symbol = __webpack_require__(189),
+	    getRawTag = __webpack_require__(192),
+	    objectToString = __webpack_require__(193);
 
 	/** `Object#toString` result references. */
 	var nullTag = '[object Null]',
@@ -22346,10 +22417,10 @@
 
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(189);
+	var root = __webpack_require__(190);
 
 	/** Built-in value references. */
 	var Symbol = root.Symbol;
@@ -22358,10 +22429,10 @@
 
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var freeGlobal = __webpack_require__(190);
+	var freeGlobal = __webpack_require__(191);
 
 	/** Detect free variable `self`. */
 	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -22373,7 +22444,7 @@
 
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -22384,10 +22455,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(188);
+	var Symbol = __webpack_require__(189);
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -22436,7 +22507,7 @@
 
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -22464,10 +22535,10 @@
 
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(194);
+	var overArg = __webpack_require__(195);
 
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -22476,7 +22547,7 @@
 
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports) {
 
 	/**
@@ -22497,7 +22568,7 @@
 
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports) {
 
 	/**
@@ -22532,14 +22603,14 @@
 
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(197);
+	module.exports = __webpack_require__(198);
 
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -22548,7 +22619,7 @@
 	  value: true
 	});
 
-	var _ponyfill = __webpack_require__(199);
+	var _ponyfill = __webpack_require__(200);
 
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 
@@ -22571,10 +22642,10 @@
 
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(198)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(199)(module)))
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -22590,7 +22661,7 @@
 
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22618,7 +22689,7 @@
 	};
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -22626,13 +22697,13 @@
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 
-	var _createStore = __webpack_require__(185);
+	var _createStore = __webpack_require__(186);
 
-	var _isPlainObject = __webpack_require__(186);
+	var _isPlainObject = __webpack_require__(187);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _warning = __webpack_require__(201);
+	var _warning = __webpack_require__(202);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -22766,7 +22837,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22796,7 +22867,7 @@
 	}
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22852,7 +22923,7 @@
 	}
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22863,7 +22934,7 @@
 
 	exports['default'] = applyMiddleware;
 
-	var _compose = __webpack_require__(204);
+	var _compose = __webpack_require__(205);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
@@ -22915,7 +22986,7 @@
 	}
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports) {
 
 	"use strict";
