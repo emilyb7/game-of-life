@@ -4,7 +4,7 @@ const Details = props => {
   return (
     <div className="details">
       <h3>Conway's Game of Life</h3>
-      <h4>A game with just 4 players and no rules</h4>
+      <h4>A game no players and just 4 rules</h4>
       <ul>
         <li>Any live cell with fewer than 2 live neighbours will die, as if caused by underpopulation</li>
         <li>Any live cell with two or 3 live neighbours will live on to the next generation</li>
