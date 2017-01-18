@@ -46,10 +46,6 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -62,36 +58,23 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _redux = __webpack_require__(184);
-
 	var _index = __webpack_require__(179);
 
 	var _index2 = _interopRequireDefault(_index);
+
+	var _redux = __webpack_require__(184);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var store = (0, _redux.createStore)(_index2.default);
 
 	var render = function render() {
-	  return _reactDom2.default.render(_react2.default.createElement(_App2.default, {
-	    value: store.getState(),
-	    onSelectCell: function onSelectCell(event) {
-	      return store.dispatch({ type: 'SELECT_CELL', cell: event.target.id });
-	    },
-	    onNext: function onNext() {
-	      return store.dispatch({ type: 'NEXT_ITERATION' });
-	    },
-	    onBack: function onBack() {
-	      return store.dispatch({ type: 'BACK_STEP' });
-	    }
-	  }), document.getElementById('app'));
+	  return _reactDom2.default.render(_react2.default.createElement(_App2.default, { store: store }), document.getElementById('app'));
 	};
 
 	render();
 
 	store.subscribe(render);
-
-	exports.default = store;
 
 /***/ },
 /* 1 */
@@ -21536,10 +21519,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _main = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./../main.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-	var _main2 = _interopRequireDefault(_main);
-
 	var _index = __webpack_require__(179);
 
 	var _index2 = _interopRequireDefault(_index);
@@ -21552,6 +21531,8 @@
 
 	var _controls2 = _interopRequireDefault(_controls);
 
+	var _redux = __webpack_require__(184);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21559,6 +21540,9 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//const store = createStore(Store);
+
 
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -21572,6 +21556,8 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
+	      var store = this.props.store;
+	      console.log(store);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'main' },
@@ -21579,14 +21565,20 @@
 	          'div',
 	          { className: 'game' },
 	          _react2.default.createElement(_game2.default, {
-	            value: this.props.value,
-	            onSelectCell: this.props.onSelectCell
+	            value: store.getState(),
+	            onSelectCell: function onSelectCell(event) {
+	              return store.dispatch({ type: 'SELECT_CELL', cell: event.target.id });
+	            }
 	          })
 	        ),
 	        _react2.default.createElement(_controls2.default, {
-	          value: this.props.value,
-	          onNext: this.props.onNext,
-	          onBack: this.props.onBack
+	          value: store.getState(),
+	          onNext: function onNext() {
+	            return store.dispatch({ type: 'NEXT_ITERATION' });
+	          },
+	          onBack: function onBack() {
+	            return store.dispatch({ type: 'BACK_STEP' });
+	          }
 	        })
 	      );
 	    }
