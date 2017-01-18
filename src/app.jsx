@@ -2,16 +2,12 @@ import React from 'react';
 import Store from './reducers/index.js';
 import Game from './components/game.jsx';
 import Controls from './components/controls.jsx';
+import Details from './components/details.jsx';
 import { createStore } from 'redux';
-
-//const store = createStore(Store);
-
-
 
 class App extends React.Component {
    render() {
      const store = this.props.store;
-     console.log(store);
       return (
         <div className="main">
           <div className="game">
@@ -25,6 +21,7 @@ class App extends React.Component {
             onNext={ () => store.dispatch({ type: 'NEXT_ITERATION' }) }
             onBack = { () => store.dispatch( {type: 'BACK_STEP'}) }
           />
+        <Details />
        </div>
       );
     }

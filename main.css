@@ -7,8 +7,7 @@ body, #app, .main {
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  overflow: hidden;
-  height: 100%;
+  font-family: "Courier New", Times, serif;
 }
 
 .game {
@@ -57,7 +56,6 @@ body, #app, .main {
 
 .helperText {
   color: #ff4766;
-  font-family: "Courier New", Times, serif;
   background-color: hsla(348, 100%, 95%, 0.4);
   padding: 5px;
 
@@ -99,4 +97,20 @@ button {
 
 .controls_back:hover, .controls_back:active {
   background-color: hsla(348, 100%, 95%, 0.4);
+}
+
+.details {
+  margin: 30px auto 30px auto;
+  color: #ff4766;
+  background-color: hsla(348, 100%, 95%, 0.4);
+  padding: 20px 20px 50px 20px;
+  text-align: center;
+}
+
+.details li {
+  text-align: left;
+}
+
+a, a:hover, a:active, a:visited {
+  color: #ff4766;
 }
