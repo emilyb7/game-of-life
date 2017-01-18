@@ -12,3 +12,8 @@ My take on Conway's game of life - infinite edition
 
 * UI
 * Responsiveness
+* File naming and structure
+
+## Other learnings
+
+It takes a long time for GitHub Pages to build
