@@ -21953,7 +21953,7 @@
 	    _react2.default.createElement(
 	      "h4",
 	      null,
-	      "A game with just 4 players and no rules"
+	      "A game no players and just 4 rules"
 	    ),
 	    _react2.default.createElement(
 	      "ul",
