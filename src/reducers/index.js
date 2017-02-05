@@ -18,7 +18,7 @@ export default (state = defaultState, action) => {
         state.livingCells.filter(c => !(c.x === cell.x && c.y === cell.y)) :
         state.livingCells.concat([cell]);
       return Object.assign({}, state, {
-        history: state.history.concat([state.livingCells]),
+        history: state.history.slice(0, 99).concat([state.livingCells]),
         livingCells: livingCellsNew
       })
     case 'NEXT_ITERATION':
@@ -28,7 +28,7 @@ export default (state = defaultState, action) => {
         livingCells: cells,
         height: getDimensions(cells)[0],
         width: getDimensions(cells)[1],
-        history: state.history.concat([state.livingCells]),
+        history: state.history.slice(0, 99).concat([state.livingCells]),
        })
     case 'BACK_STEP':
       return Object.assign({}, state, {

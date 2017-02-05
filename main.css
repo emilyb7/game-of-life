@@ -81,18 +81,13 @@ button {
   font-size: 1.1em;
 }
 
-.controls_next {
+.controls_next, .controls_back {
   color: #ffe5ea;
   background-color: #f15f78;
 }
 
 .controls_next:active, .controls_next:hover {
   background-color: #ff4766;
-}
-
-.controls_back {
-  background-color: #ffe5ea;
-  color: #f15f78;
 }
 
 .controls_back:hover, .controls_back:active {

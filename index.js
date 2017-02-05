@@ -21629,7 +21629,7 @@
 	        }) : state.livingCells.concat([cell]);
 	        return {
 	          v: Object.assign({}, state, {
-	            history: state.history.concat([state.livingCells]),
+	            history: state.history.slice(0, 100).concat([state.livingCells]),
 	            livingCells: livingCellsNew
 	          })
 	        };
@@ -21641,7 +21641,7 @@
 	            livingCells: cells,
 	            height: (0, _iteration.getDimensions)(cells)[0],
 	            width: (0, _iteration.getDimensions)(cells)[1],
-	            history: state.history.concat([state.livingCells])
+	            history: state.history.slice(0, 100).concat([state.livingCells])
 	          })
 	        };
 	      case 'BACK_STEP':
