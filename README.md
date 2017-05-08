@@ -4,11 +4,12 @@ My take on Conway's game of life - infinite edition
 
 ## Things I practised while making this app:
 
-* functional JavaScript
+* Functional JavaScript
 * React
 * Redux (first attempt)
+* TDD
 
-## Things that are admittedly not great at all:
+## Things that could be better still:
 
 * UI
 * Responsiveness
@@ -16,4 +17,4 @@ My take on Conway's game of life - infinite edition
 
 ## Other learnings
 
-It takes a long time for GitHub Pages to build
+It can take a long time for GitHub Pages to build! :)
